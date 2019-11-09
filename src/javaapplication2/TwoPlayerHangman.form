@@ -77,9 +77,9 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="X" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="A24" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="Y" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="A23" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="Z" min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -146,8 +146,8 @@
                   <Component id="S" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="T" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="U" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="A23" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="A24" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="Z" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="Y" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="X" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="W" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="V" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -168,6 +168,9 @@
           <Insets value="[1, 1, 1, 1]"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="B">
       <Properties>
@@ -400,7 +403,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="A23">
+    <Component class="javax.swing.JButton" name="Z">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="8" style="0"/>
@@ -411,7 +414,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="A24">
+    <Component class="javax.swing.JButton" name="Y">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="8" style="0"/>
@@ -512,7 +515,6 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="33" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
   </SubComponents>
