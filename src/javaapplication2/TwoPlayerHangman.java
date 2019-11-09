@@ -25,6 +25,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     String GameWord;
+    int score=0;
     String EmptyGameWord =("");
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,6 +61,8 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         GameWordField = new javax.swing.JTextField();
         ConfirmGameWord = new javax.swing.JButton();
         GameWordLine = new javax.swing.JLabel();
+        ScoreLabel = new javax.swing.JLabel();
+        ScoreCounter = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,102 +78,227 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         B.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         B.setText("B");
         B.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        B.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BActionPerformed(evt);
+            }
+        });
 
         C.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         C.setText("C");
         C.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CActionPerformed(evt);
+            }
+        });
 
         D.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         D.setText("D");
         D.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DActionPerformed(evt);
+            }
+        });
 
         E.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         E.setText("E");
         E.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EActionPerformed(evt);
+            }
+        });
 
         F.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         F.setText("F");
         F.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FActionPerformed(evt);
+            }
+        });
 
         G.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         G.setText("G");
         G.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        G.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GActionPerformed(evt);
+            }
+        });
 
         H.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         H.setText("H");
         H.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        H.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HActionPerformed(evt);
+            }
+        });
 
         J.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         J.setText("J");
         J.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        J.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JActionPerformed(evt);
+            }
+        });
 
         S.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         S.setText("S");
         S.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        S.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SActionPerformed(evt);
+            }
+        });
 
         K.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         K.setText("K");
         K.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        K.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KActionPerformed(evt);
+            }
+        });
 
         T.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         T.setText("T");
         T.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        T.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TActionPerformed(evt);
+            }
+        });
 
         I.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         I.setText("I");
         I.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        I.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IActionPerformed(evt);
+            }
+        });
 
         L.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         L.setText("L");
         L.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        L.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LActionPerformed(evt);
+            }
+        });
 
         M.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         M.setText("M");
         M.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        M.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MActionPerformed(evt);
+            }
+        });
 
         N.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         N.setText("N");
         N.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        N.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NActionPerformed(evt);
+            }
+        });
 
         O.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         O.setText("O");
         O.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        O.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OActionPerformed(evt);
+            }
+        });
 
         P.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         P.setText("P");
         P.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        P.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PActionPerformed(evt);
+            }
+        });
 
         U.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         U.setText("U");
         U.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        U.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UActionPerformed(evt);
+            }
+        });
 
         V.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         V.setText("V");
         V.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        V.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VActionPerformed(evt);
+            }
+        });
 
         Q.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         Q.setText("Q");
         Q.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        Q.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QActionPerformed(evt);
+            }
+        });
 
         R.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         R.setText("R");
         R.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        R.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RActionPerformed(evt);
+            }
+        });
 
         Z.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         Z.setText("Z");
         Z.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        Z.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ZActionPerformed(evt);
+            }
+        });
 
         Y.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         Y.setText("Y");
         Y.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        Y.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                YActionPerformed(evt);
+            }
+        });
 
         X.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         X.setText("X");
         X.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        X.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                XActionPerformed(evt);
+            }
+        });
 
         W.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         W.setText("W");
         W.setMargin(new java.awt.Insets(1, 1, 1, 1));
+        W.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WActionPerformed(evt);
+            }
+        });
 
         HangmanPic.setIcon(new javax.swing.ImageIcon("C:\\Users\\dirief\\Desktop\\Guled\\2PHangmanPics\\start.png")); // NOI18N
         HangmanPic.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
@@ -195,8 +323,15 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             }
         });
 
-        GameWordLine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        GameWordLine.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         GameWordLine.setForeground(new java.awt.Color(51, 153, 255));
+
+        ScoreLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        ScoreLabel.setForeground(new java.awt.Color(51, 153, 255));
+        ScoreLabel.setText("Score:");
+
+        ScoreCounter.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        ScoreCounter.setForeground(new java.awt.Color(51, 153, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,7 +401,11 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                             .addComponent(EnterWord, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                             .addComponent(GameWordField)
                             .addComponent(ConfirmGameWord)
-                            .addComponent(GameWordLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(GameWordLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ScoreLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ScoreCounter)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -283,6 +422,10 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                         .addComponent(ConfirmGameWord)
                         .addGap(32, 32, 32)
                         .addComponent(GameWordLine)
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ScoreLabel)
+                            .addComponent(ScoreCounter))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -333,7 +476,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             if (GameWord.charAt(i) == (' ')) {
                 EmptyGameWord += "  ";
             } else {
-                EmptyGameWord += "_ ";
+                EmptyGameWord += "-";
             }
 
         }
@@ -348,14 +491,413 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'a';
                 EmptyGameWord = String.valueOf(myNameChars);
-                //EmptyGameWord += "_ ";
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);      
+    }//GEN-LAST:event_AActionPerformed
+
+    private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('b')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'b';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
             }
             i++;
         }
         GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_BActionPerformed
 
-            
-    }//GEN-LAST:event_AActionPerformed
+    private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('c')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'c';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_CActionPerformed
+
+    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('d')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'd';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_DActionPerformed
+
+    private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('e')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'e';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_EActionPerformed
+
+    private void FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('f')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'f';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_FActionPerformed
+
+    private void GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('g')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'g';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_GActionPerformed
+
+    private void HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('h')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'h';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_HActionPerformed
+
+    private void IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('i')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'i';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_IActionPerformed
+
+    private void JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('j')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'j';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_JActionPerformed
+
+    private void KActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('k')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'k';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_KActionPerformed
+
+    private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('l')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'l';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_LActionPerformed
+
+    private void MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('m')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'm';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_MActionPerformed
+
+    private void NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('n')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'n';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_NActionPerformed
+
+    private void OActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('o')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'o';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_OActionPerformed
+
+    private void PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('p')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'p';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_PActionPerformed
+
+    private void QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('q')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'q';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_QActionPerformed
+
+    private void RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('r')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'r';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_RActionPerformed
+
+    private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('s')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 's';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_SActionPerformed
+
+    private void TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('t')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 't';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_TActionPerformed
+
+    private void UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('u')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'u';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_UActionPerformed
+
+    private void VActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('v')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'v';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_VActionPerformed
+
+    private void WActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('w')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'w';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_WActionPerformed
+
+    private void XActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('x')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'x';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_XActionPerformed
+
+    private void YActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('y')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'y';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_YActionPerformed
+
+    private void ZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZActionPerformed
+        String GameWord = GameWordField.getText();
+        int i = 0;
+        while (i < GameWord.length()) {
+            if (GameWord.charAt(i) == ('z')) {
+                char[] myNameChars = EmptyGameWord.toCharArray();
+                myNameChars[i] = 'z';
+                EmptyGameWord = String.valueOf(myNameChars);
+                score++;
+                ScoreCounter.setText(String.valueOf(score));
+            }
+            i++;
+        }
+        GameWordLine.setText(EmptyGameWord);
+    }//GEN-LAST:event_ZActionPerformed
 
     /**
      * @param args the command line arguments
@@ -417,6 +959,8 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     private javax.swing.JButton Q;
     private javax.swing.JButton R;
     private javax.swing.JButton S;
+    private javax.swing.JLabel ScoreCounter;
+    private javax.swing.JLabel ScoreLabel;
     private javax.swing.JButton T;
     private javax.swing.JButton U;
     private javax.swing.JButton V;
