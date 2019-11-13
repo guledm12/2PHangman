@@ -88,6 +88,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         Restart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("2Player Hangman");
         setBackground(new java.awt.Color(153, 255, 255));
         setForeground(new java.awt.Color(153, 255, 255));
         setPreferredSize(new java.awt.Dimension(850, 700));
@@ -485,6 +486,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             }
         });
 
+        Restart.setBackground(new java.awt.Color(153, 255, 255));
         Restart.setText("Player 2: Choose to Restart");
         Restart.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 3));
         Restart.addActionListener(new java.awt.event.ActionListener() {
