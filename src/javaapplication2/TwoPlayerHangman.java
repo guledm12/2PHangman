@@ -651,6 +651,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     }//GEN-LAST:event_GameWordFieldActionPerformed
 
     private void ConfirmGameWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmGameWordActionPerformed
+        //Sets up graphics to draw Hangman
         Graphics g = HangmanArea.getGraphics();
         Graphics2D g2 = (Graphics2D) g;
         g.clearRect(0, 0, 456,396);
@@ -659,6 +660,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         g.drawLine(50, 456, 50, 20);
         g.drawLine(50, 20, 180, 20);
         
+        //Creates number of lines that corresponds with word length.
         String GameWord = GameWordField.getText();
         score=0;
         errorcount=0;
@@ -672,6 +674,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             }
 
         }
+       //Initializing variables
        GameWordLine.setText(EmptyGameWord);
        ScoreCounter.setText(String.valueOf(score));
        GameWordLength = GameWord.length();
@@ -704,7 +707,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
        Y.setEnabled(true);
        Z.setEnabled(true);
        GameWordField.setBackground(Color.black);
-       //GameWordField.setEnabled(false);
        ConfirmGameWord.setEnabled(false);
        PlaceHere.setEnabled(false);
        PlaceHere.setVisible(false);
@@ -715,6 +717,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i=0;
+        //Loop that checks for letter 'A' in entire word
         for (i=0; i<GameWord.length(); i++){
             errorcount=0+actualerrors;
             if (GameWord.charAt(i) == ('a')){
@@ -725,10 +728,11 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 ScoreCounter.setText(String.valueOf(score));
             }
         }
+        //Records as an error if letter 'A' isn't found.
         if (!(GameWord.contains("a"))){
             errorcount++;
         }
-
+        //So errorcount doesn't always reset to 0 when a new button is clicked.
         GameWordLine.setText(EmptyGameWord);
         if (errorcount==1){
             actualerrors = 1;
@@ -751,7 +755,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         else if (errorcount == 7) {
             actualerrors = 7;
         }
-             
+        //Draws parts of hangman dependant on error count.   
         if (actualerrors == 1){
             g.setColor(Color.gray);
             g2.setStroke(new BasicStroke(5));
@@ -783,6 +787,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             g.drawLine(190, 300, 220, 380);
         }
         else if (actualerrors == 7) {
+            //Takes player to loser screen.
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
@@ -2488,10 +2493,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     }//GEN-LAST:event_ZActionPerformed
 
     private void ScoreConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScoreConfirmActionPerformed
+        //Takes player 2 to winner screen.
         if (score >= GameWordLength){
             new TwoPlayerHangmanYouWin().setVisible(true);
             this.dispose();
         }
+        //Let's player know word hasn't been fully guessed.
         else {
             HaventWonLabel.setText("You haven't won yet. Keep going!");
             WinLabel.setText("");
@@ -2503,14 +2510,17 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     }//GEN-LAST:event_PlaceHereActionPerformed
 
     private void PlaceHereMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlaceHereMouseMoved
+        //Allows player 1 to see word quickly (like a password)
         GameWordField.setBackground(Color.white);
     }//GEN-LAST:event_PlaceHereMouseMoved
 
     private void PlaceHereMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlaceHereMouseExited
+       //Allows player 1's word to be hidden as the mouse moves out of button range.
         GameWordField.setBackground(Color.black);
     }//GEN-LAST:event_PlaceHereMouseExited
 
     private void RestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartActionPerformed
+        //Restarts game.
         new TwoPlayerHangman().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_RestartActionPerformed
