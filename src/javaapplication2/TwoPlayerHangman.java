@@ -84,12 +84,13 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         WinLabel = new javax.swing.JLabel();
         HaventWonLabel = new javax.swing.JLabel();
         HangmanArea = new javax.swing.JPanel();
-        errors = new javax.swing.JLabel();
+        PlaceHere = new javax.swing.JButton();
+        Restart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 255));
         setForeground(new java.awt.Color(153, 255, 255));
-        setPreferredSize(new java.awt.Dimension(750, 700));
+        setPreferredSize(new java.awt.Dimension(850, 700));
 
         A.setBackground(new java.awt.Color(102, 255, 255));
         A.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
@@ -405,9 +406,9 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
 
         EnterWord.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         EnterWord.setForeground(new java.awt.Color(51, 153, 255));
-        EnterWord.setText("Player 1: Enter Word for Player 2 to guess!");
+        EnterWord.setText("Player 1: Enter Word for Player 2 to guess! (lower case only)");
 
-        GameWordField.setBackground(new java.awt.Color(102, 255, 255));
+        GameWordField.setBackground(new java.awt.Color(0, 0, 0));
         GameWordField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
         GameWordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,7 +466,32 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             .addGap(0, 446, Short.MAX_VALUE)
         );
 
-        errors.setText("jLabel1");
+        PlaceHere.setBackground(new java.awt.Color(102, 255, 255));
+        PlaceHere.setText("Place mouse here to see word");
+        PlaceHere.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 255), 3, true));
+        PlaceHere.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                PlaceHereMouseMoved(evt);
+            }
+        });
+        PlaceHere.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PlaceHereMouseExited(evt);
+            }
+        });
+        PlaceHere.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PlaceHereActionPerformed(evt);
+            }
+        });
+
+        Restart.setText("Player 2: Choose to Restart");
+        Restart.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 3));
+        Restart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RestartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -480,14 +506,19 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(EnterWord, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ConfirmGameWord)
-                                .addComponent(GameWordField, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(GameWordLine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(ScoreLabel)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ScoreCounter)))
+                                    .addComponent(ScoreCounter))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(ConfirmGameWord)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(PlaceHere))
+                                    .addComponent(GameWordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(Restart, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(HaventWonLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(ScoreConfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
                                 .addComponent(WinLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -526,11 +557,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(Z, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(errors))
-                            .addComponent(R, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(R, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -555,13 +582,15 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(EnterWord)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EnterWord, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(GameWordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ConfirmGameWord)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ConfirmGameWord)
+                            .addComponent(PlaceHere))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(GameWordLine)
                         .addGap(38, 38, 38)
@@ -573,7 +602,9 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(WinLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(HaventWonLabel))
+                        .addComponent(HaventWonLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Restart, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(HangmanArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -597,19 +628,17 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                     .addComponent(P, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Q, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(R, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(S, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(T, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(U, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Z, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Y, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(X, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(W, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(V, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(errors))
-                .addGap(27, 27, 27))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(S, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(U, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Z, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Y, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(X, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(W, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(V, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -631,7 +660,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         String GameWord = GameWordField.getText();
         score=0;
         errorcount=0;
-        errors.setText(String.valueOf(actualerrors));
         EmptyGameWord=("");
         //Takes game word and covers it in blanks
         for (int i = 0; i < GameWord.length(); i++) {
@@ -676,6 +704,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
        GameWordField.setBackground(Color.black);
        //GameWordField.setEnabled(false);
        ConfirmGameWord.setEnabled(false);
+       PlaceHere.setEnabled(false);
     }//GEN-LAST:event_ConfirmGameWordActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
@@ -685,7 +714,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         int i=0;
         for (i=0; i<GameWord.length(); i++){
             errorcount=0+actualerrors;
-            if (GameWord.charAt(i) == ('a')) {
+            if (GameWord.charAt(i) == ('a')){
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'a';
                 EmptyGameWord = String.valueOf(myNameChars);
@@ -755,7 +784,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             this.dispose();
         }
         A.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_AActionPerformed
 
     private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
@@ -823,7 +851,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             this.dispose();
         }
         B.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_BActionPerformed
 
     private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
@@ -891,7 +918,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             this.dispose();
         }
         C.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_CActionPerformed
 
     private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
@@ -960,7 +986,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         D.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_DActionPerformed
 
     private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
@@ -1029,7 +1054,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         E.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_EActionPerformed
 
     private void FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FActionPerformed
@@ -1098,7 +1122,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         F.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_FActionPerformed
 
     private void GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GActionPerformed
@@ -1167,7 +1190,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         G.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_GActionPerformed
 
     private void HActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HActionPerformed
@@ -1236,7 +1258,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         H.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_HActionPerformed
 
     private void IActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IActionPerformed
@@ -1305,7 +1326,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         I.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_IActionPerformed
 
     private void JActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JActionPerformed
@@ -1374,7 +1394,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         J.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_JActionPerformed
 
     private void KActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KActionPerformed
@@ -1443,7 +1462,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         K.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_KActionPerformed
 
     private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
@@ -1512,7 +1530,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         L.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_LActionPerformed
 
     private void MActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MActionPerformed
@@ -1581,7 +1598,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         M.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_MActionPerformed
 
     private void NActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NActionPerformed
@@ -1650,7 +1666,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         N.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_NActionPerformed
 
     private void OActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OActionPerformed
@@ -1719,7 +1734,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         O.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_OActionPerformed
 
     private void PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PActionPerformed
@@ -1788,7 +1802,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         P.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_PActionPerformed
 
     private void QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QActionPerformed
@@ -1857,7 +1870,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         Q.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_QActionPerformed
 
     private void RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RActionPerformed
@@ -1926,7 +1938,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         R.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_RActionPerformed
 
     private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
@@ -1995,7 +2006,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         S.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_SActionPerformed
 
     private void TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TActionPerformed
@@ -2064,7 +2074,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         T.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_TActionPerformed
 
     private void UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UActionPerformed
@@ -2133,7 +2142,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         U.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_UActionPerformed
 
     private void VActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VActionPerformed
@@ -2202,7 +2210,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         V.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_VActionPerformed
 
     private void WActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WActionPerformed
@@ -2271,7 +2278,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         W.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_WActionPerformed
 
     private void XActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XActionPerformed
@@ -2340,7 +2346,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         X.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_XActionPerformed
 
     private void YActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YActionPerformed
@@ -2409,7 +2414,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         Y.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_YActionPerformed
 
     private void ZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZActionPerformed
@@ -2478,19 +2482,11 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         }
         //
         Z.setEnabled(false);
-        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_ZActionPerformed
 
     private void ScoreConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScoreConfirmActionPerformed
         if (score >= GameWordLength){
-            WinLabel.setText("YOU WIN!");
-            HaventWonLabel.setText("");
-            try {
-                TimeUnit.SECONDS.sleep(5);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(TwoPlayerHangman.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            new TwoPlayerHangman().setVisible(true);
+            new TwoPlayerHangmanYouWin().setVisible(true);
             this.dispose();
         }
         else {
@@ -2498,6 +2494,23 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             WinLabel.setText("");
         }
     }//GEN-LAST:event_ScoreConfirmActionPerformed
+
+    private void PlaceHereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceHereActionPerformed
+        
+    }//GEN-LAST:event_PlaceHereActionPerformed
+
+    private void PlaceHereMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlaceHereMouseMoved
+        GameWordField.setBackground(Color.white);
+    }//GEN-LAST:event_PlaceHereMouseMoved
+
+    private void PlaceHereMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PlaceHereMouseExited
+        GameWordField.setBackground(Color.black);
+    }//GEN-LAST:event_PlaceHereMouseExited
+
+    private void RestartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestartActionPerformed
+        new TwoPlayerHangman().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_RestartActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2556,8 +2569,10 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     private javax.swing.JButton N;
     private javax.swing.JButton O;
     private javax.swing.JButton P;
+    public javax.swing.JButton PlaceHere;
     private javax.swing.JButton Q;
     private javax.swing.JButton R;
+    private javax.swing.JButton Restart;
     private javax.swing.JButton S;
     private javax.swing.JButton ScoreConfirm;
     private javax.swing.JLabel ScoreCounter;
@@ -2570,6 +2585,5 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     private javax.swing.JButton X;
     private javax.swing.JButton Y;
     private javax.swing.JButton Z;
-    private javax.swing.JLabel errors;
     // End of variables declaration//GEN-END:variables
 }

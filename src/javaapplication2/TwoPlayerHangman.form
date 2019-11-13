@@ -10,7 +10,7 @@
       <Color blue="ff" green="ff" red="99" type="rgb"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[750, 700]"/>
+      <Dimension value="[850, 700]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -41,16 +41,23 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="EnterWord" alignment="0" min="-2" pref="644" max="-2" attributes="0"/>
-                              <Component id="ConfirmGameWord" min="-2" max="-2" attributes="0"/>
-                              <Component id="GameWordField" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
                               <Component id="GameWordLine" alignment="1" min="-2" pref="644" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="ScoreLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="ScoreCounter" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="ConfirmGameWord" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="PlaceHere" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="GameWordField" alignment="0" min="-2" pref="299" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="Restart" alignment="0" max="32767" attributes="0"/>
                               <Component id="HaventWonLabel" alignment="0" max="32767" attributes="0"/>
                               <Component id="ScoreConfirm" alignment="0" pref="284" max="32767" attributes="0"/>
                               <Component id="WinLabel" alignment="0" max="32767" attributes="0"/>
@@ -95,13 +102,7 @@
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                              <Component id="errors" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="R" min="-2" pref="39" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="R" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="A" min="-2" pref="39" max="-2" attributes="0"/>
@@ -131,13 +132,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="EnterWord" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="EnterWord" min="-2" pref="19" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="GameWordField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="ConfirmGameWord" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConfirmGameWord" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="PlaceHere" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="GameWordLine" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -151,6 +155,8 @@
                       <Component id="WinLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="HaventWonLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="Restart" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
                   <Component id="HangmanArea" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -178,21 +184,18 @@
                   <Component id="Q" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="R" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="S" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="T" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="U" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="Z" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="Y" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="X" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="W" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                      <Component id="V" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="errors" alignment="0" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="S" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="T" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="U" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="Z" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="Y" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="X" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="W" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="V" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -908,13 +911,13 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="33" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Player 1: Enter Word for Player 2 to guess!"/>
+        <Property name="text" type="java.lang.String" value="Player 1: Enter Word for Player 2 to guess! (lower case only)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="GameWordField">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="66" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1041,10 +1044,43 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Component class="javax.swing.JLabel" name="errors">
+    <Component class="javax.swing.JButton" name="PlaceHere">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="66" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Place mouse here to see word"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder roundedCorners="true" thickness="3">
+              <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="PlaceHereMouseMoved"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PlaceHereMouseExited"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PlaceHereActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="Restart">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Player 2: Choose to Restart"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder thickness="3">
+              <Color PropertyName="color" blue="ff" green="99" red="33" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RestartActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
