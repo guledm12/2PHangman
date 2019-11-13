@@ -37,6 +37,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     static String GameWord;
     int score=0;
     int errorcount=0;
+    int actualerrors=0;
     int GameWordLength;
     String EmptyGameWord =("");
     
@@ -626,7 +627,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         String GameWord = GameWordField.getText();
         score=0;
         errorcount=0;
-        errors.setText(String.valueOf(errorcount));
+        errors.setText(String.valueOf(actualerrors));
         EmptyGameWord=("");
         //Takes game word and covers it in blanks
         for (int i = 0; i < GameWord.length(); i++) {
@@ -676,7 +677,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         String GameWord = GameWordField.getText();
         int i=0;
         for (i=0; i<GameWord.length(); i++){
-            errorcount=0;
+            errorcount=0+actualerrors;
             if (GameWord.charAt(i) == ('a')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'a';
@@ -689,93 +690,227 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             }
         }
         GameWordLine.setText(EmptyGameWord);
-        if (errorcount == 1){
+        if (errorcount==1){
+            actualerrors = 1;
+        }
+        else if (errorcount==2){
+            actualerrors = 2;
+            }
+             
+        if (actualerrors == 1){
             g.setColor(Color.gray);
             g2.setStroke(new BasicStroke(5));
             g.drawOval(150,25,80,80);
-        }   
+        }
+        else if (actualerrors == 2){
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190,105,190,300);
+        }
+        else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        }
+        else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        }
+        else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        }
+        else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        }
+        else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+            //
+            /*g.drawLine(190,105,190,300);
+            g.drawLine(190,105,140,230);
+            g.drawLine(190,105,240,230);
+            g.drawLine(190,300,160,380);
+            g.drawLine(190,300,220,380);
+            //
+            g.setColor(Color.red);
+            g.drawOval(150, 25, 80, 80);
+            g.drawLine(190, 105, 190, 300);
+            g.drawLine(190, 105, 140, 230);
+            g.drawLine(190, 105, 240, 230);
+            g.drawLine(190, 300, 160, 380);
+            g.drawLine(190, 300, 220, 380);  */  
         A.setEnabled(false);
-        errors.setText(String.valueOf(errorcount));
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_AActionPerformed
 
     private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('b')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'b';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        B.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_BActionPerformed
 
     private void CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0;
             if (GameWord.charAt(i) == ('c')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'c';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        }
+        C.setEnabled(false);
+        errors.setText(String.valueOf(errorcount));
     }//GEN-LAST:event_CActionPerformed
 
     private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0;
             if (GameWord.charAt(i) == ('d')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'd';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        }
+        D.setEnabled(false);
+        errors.setText(String.valueOf(errorcount));
     }//GEN-LAST:event_DActionPerformed
 
     private void EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0;
             if (GameWord.charAt(i) == ('e')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'e';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        }
+        E.setEnabled(false);
+        errors.setText(String.valueOf(errorcount));
     }//GEN-LAST:event_EActionPerformed
 
     private void FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0;
             if (GameWord.charAt(i) == ('f')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'f';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        }
+        F.setEnabled(false);
+        errors.setText(String.valueOf(errorcount));
     }//GEN-LAST:event_FActionPerformed
 
     private void GActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GActionPerformed
