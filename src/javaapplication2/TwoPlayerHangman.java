@@ -486,7 +486,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             }
         });
 
-        Restart.setBackground(new java.awt.Color(153, 255, 255));
+        Restart.setBackground(new java.awt.Color(102, 255, 255));
         Restart.setText("Player 2: Choose to Restart");
         Restart.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 3));
         Restart.addActionListener(new java.awt.event.ActionListener() {
@@ -707,6 +707,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
        //GameWordField.setEnabled(false);
        ConfirmGameWord.setEnabled(false);
        PlaceHere.setEnabled(false);
+       PlaceHere.setVisible(false);
     }//GEN-LAST:event_ConfirmGameWordActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
