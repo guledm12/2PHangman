@@ -6,11 +6,15 @@
 package javaapplication2;
 
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import javax.swing.JPanel;
 /**
  *
  * @author dirief
@@ -65,7 +69,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         Y = new javax.swing.JButton();
         X = new javax.swing.JButton();
         W = new javax.swing.JButton();
-        HangmanPic = new javax.swing.JLabel();
         EnterWord = new javax.swing.JLabel();
         GameWordField = new javax.swing.JTextField();
         ConfirmGameWord = new javax.swing.JButton();
@@ -75,18 +78,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         ScoreConfirm = new javax.swing.JButton();
         WinLabel = new javax.swing.JLabel();
         HaventWonLabel = new javax.swing.JLabel();
-        HangmanPicError1 = new javax.swing.JLabel();
-        HangmanPicError2 = new javax.swing.JLabel();
-        HangmanPicError3 = new javax.swing.JLabel();
-        HangmanPicError4 = new javax.swing.JLabel();
-        HangmanPicError5 = new javax.swing.JLabel();
-        HangmanPicError6 = new javax.swing.JLabel();
-        HangmanPicError7 = new javax.swing.JLabel();
+        HangmanArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 255));
         setForeground(new java.awt.Color(153, 255, 255));
-        setPreferredSize(new java.awt.Dimension(720, 632));
+        setPreferredSize(new java.awt.Dimension(750, 632));
 
         A.setBackground(new java.awt.Color(102, 255, 255));
         A.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
@@ -400,10 +397,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             }
         });
 
-        HangmanPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/start.png"))); // NOI18N
-        HangmanPic.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPic.setMinimumSize(new java.awt.Dimension(36, 44));
-
         EnterWord.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         EnterWord.setForeground(new java.awt.Color(51, 153, 255));
         EnterWord.setText("Player 1: Enter Word for Player 2 to guess!");
@@ -434,6 +427,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
 
         ScoreCounter.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ScoreCounter.setForeground(new java.awt.Color(51, 153, 255));
+        ScoreCounter.setToolTipText("");
 
         ScoreConfirm.setBackground(new java.awt.Color(102, 255, 255));
         ScoreConfirm.setText("Click here when you have fully guessed the word.");
@@ -452,40 +446,19 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         HaventWonLabel.setForeground(new java.awt.Color(255, 0, 51));
         HaventWonLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        HangmanPicError1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/1error.png"))); // NOI18N
-        HangmanPicError1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPicError1.setMinimumSize(new java.awt.Dimension(36, 44));
-        HangmanPicError1.setVisible(false);
+        HangmanArea.setBackground(new java.awt.Color(153, 255, 255));
+        HangmanArea.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 5, true));
 
-        HangmanPicError2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/2error.png"))); // NOI18N
-        HangmanPicError2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPicError2.setMinimumSize(new java.awt.Dimension(36, 44));
-        HangmanPicError2.setVisible(false);
-
-        HangmanPicError3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/3error.png"))); // NOI18N
-        HangmanPicError3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPicError3.setMinimumSize(new java.awt.Dimension(36, 44));
-        HangmanPicError3.setVisible(false);
-
-        HangmanPicError4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/4error.png"))); // NOI18N
-        HangmanPicError4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPicError4.setMinimumSize(new java.awt.Dimension(36, 44));
-        HangmanPicError4.setVisible(false);
-
-        HangmanPicError5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/5error.png"))); // NOI18N
-        HangmanPicError5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPicError5.setMinimumSize(new java.awt.Dimension(36, 44));
-        HangmanPicError5.setVisible(false);
-
-        HangmanPicError6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/6error.png"))); // NOI18N
-        HangmanPicError6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPicError6.setMinimumSize(new java.awt.Dimension(36, 44));
-        HangmanPicError6.setVisible(false);
-
-        HangmanPicError7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication2/newpackage/7error.png"))); // NOI18N
-        HangmanPicError7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(51, 153, 255), 3, true));
-        HangmanPicError7.setMinimumSize(new java.awt.Dimension(36, 44));
-        HangmanPicError7.setVisible(false);
+        javax.swing.GroupLayout HangmanAreaLayout = new javax.swing.GroupLayout(HangmanArea);
+        HangmanArea.setLayout(HangmanAreaLayout);
+        HangmanAreaLayout.setHorizontalGroup(
+            HangmanAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 386, Short.MAX_VALUE)
+        );
+        HangmanAreaLayout.setVerticalGroup(
+            HangmanAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 446, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -495,23 +468,22 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(B, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(C, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(D, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(E, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(F, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(G, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(H, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(I, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(HangmanArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(EnterWord, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ConfirmGameWord)
+                                .addComponent(GameWordField, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(GameWordLine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(ScoreLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ScoreCounter)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(HaventWonLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ScoreConfirm, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                                .addComponent(WinLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -549,152 +521,82 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(R, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(HangmanPic, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(EnterWord, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
-                                .addComponent(ConfirmGameWord)
-                                .addComponent(GameWordLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(ScoreLabel)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ScoreCounter))
-                                .addComponent(ScoreConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(GameWordField, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(WinLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HaventWonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(B, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(C, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(D, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(E, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(F, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(G, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(H, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(I, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(HangmanPicError1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(670, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(30, 30, 30)
-                    .addComponent(HangmanPicError2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(660, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(40, 40, 40)
-                    .addComponent(HangmanPicError3, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(650, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(50, 50, 50)
-                    .addComponent(HangmanPicError4, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(640, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(60, 60, 60)
-                    .addComponent(HangmanPicError5, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(630, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(70, 70, 70)
-                    .addComponent(HangmanPicError6, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(620, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(80, 80, 80)
-                    .addComponent(HangmanPicError7, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(610, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(HangmanPic, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(B, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(C, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(D, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(E, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(F, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(G, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(H, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(I, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(J, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(K, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(L, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(M, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(N, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(O, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(P, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Q, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(R, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(S, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(T, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(U, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Z, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Y, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(X, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(W, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(V, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(EnterWord)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(GameWordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(ConfirmGameWord)
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(GameWordLine)
-                        .addGap(103, 103, 103)
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ScoreLabel)
                             .addComponent(ScoreCounter))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ScoreConfirm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(WinLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HaventWonLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(21, 21, 21)
-                    .addComponent(HangmanPicError1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(183, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(31, 31, 31)
-                    .addComponent(HangmanPicError2, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(173, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(41, 41, 41)
-                    .addComponent(HangmanPicError3, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(163, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(51, 51, 51)
-                    .addComponent(HangmanPicError4, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(153, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(61, 61, 61)
-                    .addComponent(HangmanPicError5, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(143, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(71, 71, 71)
-                    .addComponent(HangmanPicError6, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(133, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(81, 81, 81)
-                    .addComponent(HangmanPicError7, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(123, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(HaventWonLabel))
+                    .addComponent(HangmanArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(B, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(C, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(D, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(E, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(F, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(G, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(H, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(I, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(J, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(K, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(L, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(M, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(N, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(O, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(P, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Q, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(R, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(S, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(T, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(U, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Z, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Y, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(X, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(W, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(V, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -707,6 +609,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     private void ConfirmGameWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmGameWordActionPerformed
         String GameWord = GameWordField.getText();
         score=0;
+        errorcount=0;
         EmptyGameWord=("");
         //Takes game word and covers it in blanks
         for (int i = 0; i < GameWord.length(); i++) {
@@ -722,14 +625,39 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
        GameWordLength = GameWord.length();
        WinLabel.setText("");
        HaventWonLabel.setText("");
+       A.setEnabled(true);
+       B.setEnabled(true);
+       C.setEnabled(true);
+       D.setEnabled(true);
+       E.setEnabled(true);
+       F.setEnabled(true);
+       G.setEnabled(true);
+       H.setEnabled(true);
+       I.setEnabled(true);
+       J.setEnabled(true);
+       K.setEnabled(true);
+       L.setEnabled(true);
+       M.setEnabled(true);
+       N.setEnabled(true);
+       O.setEnabled(true);
+       P.setEnabled(true);
+       Q.setEnabled(true);
+       R.setEnabled(true);
+       S.setEnabled(true);
+       T.setEnabled(true);
+       U.setEnabled(true);
+       V.setEnabled(true);
+       W.setEnabled(true);
+       X.setEnabled(true);
+       Y.setEnabled(true);
+       Z.setEnabled(true);
     }//GEN-LAST:event_ConfirmGameWordActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
         String GameWord = GameWordField.getText();
         int i=0;
-        errorcount=0;
-        //while(i<GameWord.length()) {
         for (i=0; i<GameWord.length(); i++){
+            errorcount=0;
             if (GameWord.charAt(i) == ('a')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'a';
@@ -738,16 +666,18 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 ScoreCounter.setText(String.valueOf(score));
             }
             else {
-                errorcount = 1;
+                errorcount++;
             }
-            //i++;
         }
         GameWordLine.setText(EmptyGameWord);
-        A.setVisible(false);
-        if (errorcount == 1){
-        HangmanPicError1.setVisible(true);
-        HangmanPic.setVisible(false);
-        }
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
+        if (errorcount = 1){
+            g.setColor(Color.black);
+            g2.setStroke(new BasicStroke(10));
+            g.drawLine(0, 0, 200, 200);
+            A.setEnabled(false);
+        }    
     }//GEN-LAST:event_AActionPerformed
 
     private void BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BActionPerformed
@@ -1208,14 +1138,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     private javax.swing.JTextField GameWordField;
     private javax.swing.JLabel GameWordLine;
     private javax.swing.JButton H;
-    private javax.swing.JLabel HangmanPic;
-    private javax.swing.JLabel HangmanPicError1;
-    private javax.swing.JLabel HangmanPicError2;
-    private javax.swing.JLabel HangmanPicError3;
-    private javax.swing.JLabel HangmanPicError4;
-    private javax.swing.JLabel HangmanPicError5;
-    private javax.swing.JLabel HangmanPicError6;
-    private javax.swing.JLabel HangmanPicError7;
+    private javax.swing.JPanel HangmanArea;
     private javax.swing.JLabel HaventWonLabel;
     private javax.swing.JButton I;
     private javax.swing.JButton J;
