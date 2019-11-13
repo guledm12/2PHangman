@@ -89,7 +89,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 255));
         setForeground(new java.awt.Color(153, 255, 255));
-        setPreferredSize(new java.awt.Dimension(750, 632));
+        setPreferredSize(new java.awt.Dimension(750, 700));
 
         A.setBackground(new java.awt.Color(102, 255, 255));
         A.setFont(new java.awt.Font("Tahoma", 1, 8)); // NOI18N
@@ -692,10 +692,11 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
             }
-            else {
-                errorcount++;
-            }
         }
+        if (!(GameWord.contains("a"))){
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount==1){
             actualerrors = 1;
@@ -753,20 +754,6 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
-            //
-            /*g.drawLine(190,105,190,300);
-            g.drawLine(190,105,140,230);
-            g.drawLine(190,105,240,230);
-            g.drawLine(190,300,160,380);
-            g.drawLine(190,300,220,380);
-            //
-            g.setColor(Color.red);
-            g.drawOval(150, 25, 80, 80);
-            g.drawLine(190, 105, 190, 300);
-            g.drawLine(190, 105, 140, 230);
-            g.drawLine(190, 105, 240, 230);
-            g.drawLine(190, 300, 160, 380);
-            g.drawLine(190, 300, 220, 380);  */  
         A.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_AActionPerformed
@@ -784,10 +771,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("b"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -850,10 +839,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("c"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -916,10 +907,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("d"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -965,6 +958,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         D.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_DActionPerformed
@@ -982,10 +976,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("e"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1031,6 +1027,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         E.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_EActionPerformed
@@ -1048,10 +1045,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("f"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1097,6 +1096,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         F.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_FActionPerformed
@@ -1114,10 +1114,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("g"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1163,6 +1165,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         G.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_GActionPerformed
@@ -1180,10 +1183,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("h"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1229,6 +1234,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         H.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_HActionPerformed
@@ -1246,10 +1252,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("i"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1295,6 +1303,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         I.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_IActionPerformed
@@ -1312,10 +1321,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("j"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1361,6 +1372,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         J.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_JActionPerformed
@@ -1378,10 +1390,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("k"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1427,6 +1441,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         K.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_KActionPerformed
@@ -1444,10 +1459,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("l"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1493,6 +1510,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         L.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_LActionPerformed
@@ -1510,10 +1528,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("m"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1559,6 +1579,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         M.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_MActionPerformed
@@ -1576,10 +1597,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("n"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1625,6 +1648,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         N.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_NActionPerformed
@@ -1642,10 +1666,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("o"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1691,6 +1717,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         O.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_OActionPerformed
@@ -1708,10 +1735,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("p"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1757,6 +1786,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         P.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_PActionPerformed
@@ -1774,10 +1804,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("q"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1823,6 +1855,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         Q.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_QActionPerformed
@@ -1840,10 +1873,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("r"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1889,6 +1924,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         R.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_RActionPerformed
@@ -1906,10 +1942,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("s"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -1955,6 +1993,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         S.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_SActionPerformed
@@ -1972,10 +2011,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("t"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -2021,6 +2062,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         T.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_TActionPerformed
@@ -2038,10 +2080,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("u"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -2087,6 +2131,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         U.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_UActionPerformed
@@ -2104,10 +2149,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("v"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -2153,6 +2200,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         V.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_VActionPerformed
@@ -2170,10 +2218,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("w"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -2219,6 +2269,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         W.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_WActionPerformed
@@ -2236,10 +2287,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("x"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -2285,6 +2338,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         X.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_XActionPerformed
@@ -2302,10 +2356,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("y"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -2351,6 +2407,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         Y.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_YActionPerformed
@@ -2368,10 +2425,12 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
-            } else {
-                errorcount++;
             }
         }
+        if (!(GameWord.contains("z"))) {
+            errorcount++;
+        }
+
         GameWordLine.setText(EmptyGameWord);
         if (errorcount == 1) {
             actualerrors = 1;
@@ -2417,6 +2476,7 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
             new TwoPlayerHangmanGameOver().setVisible(true);
             this.dispose();
         }
+        //
         Z.setEnabled(false);
         errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_ZActionPerformed
