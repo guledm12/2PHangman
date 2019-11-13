@@ -14,7 +14,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.sql.Time;
 import javax.swing.JPanel;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author dirief
@@ -669,6 +673,9 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
        X.setEnabled(true);
        Y.setEnabled(true);
        Z.setEnabled(true);
+       GameWordField.setBackground(Color.black);
+       //GameWordField.setEnabled(false);
+       ConfirmGameWord.setEnabled(false);
     }//GEN-LAST:event_ConfirmGameWordActionPerformed
 
     private void AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AActionPerformed
@@ -1689,185 +1696,742 @@ public class TwoPlayerHangman extends javax.swing.JFrame {
     }//GEN-LAST:event_OActionPerformed
 
     private void PActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('p')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'p';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        P.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_PActionPerformed
 
     private void QActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('q')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'q';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        Q.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_QActionPerformed
 
     private void RActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('r')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'r';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        R.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_RActionPerformed
 
     private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('s')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 's';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        S.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_SActionPerformed
 
     private void TActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('t')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 't';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        T.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_TActionPerformed
 
     private void UActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('u')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'u';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        U.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_UActionPerformed
 
     private void VActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('v')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'v';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        V.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_VActionPerformed
 
     private void WActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('w')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'w';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        W.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_WActionPerformed
 
     private void XActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('x')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'x';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        X.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_XActionPerformed
 
     private void YActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('y')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'y';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        Y.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_YActionPerformed
 
     private void ZActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ZActionPerformed
+        Graphics g = HangmanArea.getGraphics();
+        Graphics2D g2 = (Graphics2D) g;
         String GameWord = GameWordField.getText();
         int i = 0;
-        while (i < GameWord.length()) {
+        for (i = 0; i < GameWord.length(); i++) {
+            errorcount = 0 + actualerrors;
             if (GameWord.charAt(i) == ('z')) {
                 char[] myNameChars = EmptyGameWord.toCharArray();
                 myNameChars[i] = 'z';
                 EmptyGameWord = String.valueOf(myNameChars);
                 score++;
                 ScoreCounter.setText(String.valueOf(score));
+            } else {
+                errorcount++;
             }
-            i++;
         }
         GameWordLine.setText(EmptyGameWord);
+        if (errorcount == 1) {
+            actualerrors = 1;
+        } else if (errorcount == 2) {
+            actualerrors = 2;
+        } else if (errorcount == 3) {
+            actualerrors = 3;
+        } else if (errorcount == 4) {
+            actualerrors = 4;
+        } else if (errorcount == 5) {
+            actualerrors = 5;
+        } else if (errorcount == 6) {
+            actualerrors = 6;
+        } else if (errorcount == 7) {
+            actualerrors = 7;
+        }
+
+        if (actualerrors == 1) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawOval(150, 25, 80, 80);
+        } else if (actualerrors == 2) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 190, 300);
+        } else if (actualerrors == 3) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 140, 230);
+        } else if (actualerrors == 4) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 105, 240, 230);
+        } else if (actualerrors == 5) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 160, 380);
+        } else if (actualerrors == 6) {
+            g.setColor(Color.gray);
+            g2.setStroke(new BasicStroke(5));
+            g.drawLine(190, 300, 220, 380);
+        } else if (actualerrors == 7) {
+            new TwoPlayerHangmanGameOver().setVisible(true);
+            this.dispose();
+        }
+        Z.setEnabled(false);
+        errors.setText(String.valueOf(actualerrors));
     }//GEN-LAST:event_ZActionPerformed
 
     private void ScoreConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ScoreConfirmActionPerformed
         if (score >= GameWordLength){
             WinLabel.setText("YOU WIN!");
             HaventWonLabel.setText("");
+            try {
+                TimeUnit.SECONDS.sleep(5);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(TwoPlayerHangman.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            new TwoPlayerHangman().setVisible(true);
+            this.dispose();
         }
         else {
             HaventWonLabel.setText("You haven't won yet. Keep going!");
